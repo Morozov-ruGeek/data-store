@@ -1,5 +1,8 @@
 package ru.amorozov.data.store.datastore.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -8,12 +11,18 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "type_document")
+@NoArgsConstructor
+@Data
 public class TypeOfDocument {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name = "type_id")
     private Long id;
+
+    @ManyToOne
+    @JoinColumn (name = "type_id")
+    private Document document;
 
     @Column(name = "document_name")
     private String documentName;

@@ -6,8 +6,8 @@ server:
 spring:
   datasource:
     ddl-auto: update
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/db_example
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${MYSQL_HOST:localhost}:3306/data_store
     username: root
     password: root
 jpa:

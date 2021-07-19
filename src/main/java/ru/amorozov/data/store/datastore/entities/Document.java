@@ -7,38 +7,36 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
 
 @Entity
-@Table(name = "peoples")
-@Data
+@Table(name = "documents")
 @NoArgsConstructor
-public class People {
+@Data
+public class Document {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "people_id")
-    private Document document;
+    @OneToMany(mappedBy = "documents")
+    private List<TypeOfDocument> typeOfDocuments;
 
-    @Column(name = "first_name")
-    private String firstName;
+    @OneToMany(mappedBy = "documents")
+    private List<People> people;
 
-    @Column(name = "last_name")
-    private String lastName;
+    @Column(name = "series")
+    private Long series;
 
-    @Column(name = "patronymic")
-    private String patronymic;
+    @Column(name = "number")
+    private Long number;
 
-    @Column(name = "birthday")
-    private LocalDate birthday;
-
-    @Column(name = "sex")
-    private String sex;
+    @Column(name = "document_date")
+    private Date dateOfDocument;
 
     @CreationTimestamp
     @Column(name = "created_at")
