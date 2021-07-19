@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import ru.amorozov.data.store.datastore.entities.People;
 
 import java.time.LocalDate;
-import java.util.Date;
 
 @Repository
 public interface PeopleRepository extends JpaRepository<People, Long> {

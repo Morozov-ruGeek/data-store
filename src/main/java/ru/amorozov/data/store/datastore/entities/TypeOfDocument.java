@@ -11,7 +11,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "type_document")
-@AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class TypeOfDocument {

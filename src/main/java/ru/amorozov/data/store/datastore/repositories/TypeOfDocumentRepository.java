@@ -9,4 +9,5 @@ import java.util.Optional;
 @Repository
 public interface TypeOfDocumentRepository extends JpaRepository<TypeOfDocument, Long> {
     Optional<TypeOfDocument> findByDocumentName(String documentName);
+    Long findIdByDocumentName(String documentName);
 }

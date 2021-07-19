@@ -15,7 +15,6 @@ import java.util.List;
 @Entity
 @Table(name = "documents")
 @NoArgsConstructor
-@AllArgsConstructor
 @Data
 public class Document {
 

@@ -19,4 +19,8 @@ public class TypeOfDocumentService {
     public Optional<TypeOfDocument> findByDocumentName(String documentName){
         return typeOfDocumentRepository.findByDocumentName(documentName);
     }
+
+    public Long findIdByDocumentName(String documentName){
+        return typeOfDocumentRepository.findIdByDocumentName(documentName)
+    }
 }
