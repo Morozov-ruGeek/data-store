@@ -1,20 +1,30 @@
 package ru.amorozov.data.store.datastore.entities;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Entity
 @Table(name = "peoples")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class People {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
+    @ManyToOne
+    @JoinColumn(name = "people_id")
+    private Documents documents;
 
     @Column(name = "first_name")
     private String firstName;
@@ -25,9 +35,8 @@ public class People {
     @Column(name = "patronymic")
     private String patronymic;
 
-    //    todo change data types
     @Column(name = "birthday")
-    private String birthday;
+    private LocalDate birthday;
 
     @Column(name = "sex")
     private String sex;
@@ -39,5 +48,4 @@ public class People {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
-
 }
