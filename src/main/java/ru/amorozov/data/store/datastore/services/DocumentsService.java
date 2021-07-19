@@ -3,7 +3,7 @@ package ru.amorozov.data.store.datastore.services;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.amorozov.data.store.datastore.dto.DocumentsDto;
-import ru.amorozov.data.store.datastore.entities.Documents;
+import ru.amorozov.data.store.datastore.entities.Document;
 import ru.amorozov.data.store.datastore.repositories.DocumentsRepository;
 
 @Service
@@ -13,9 +13,10 @@ public class DocumentsService {
     private final TypeOfDocumentService typeOfDocumentService;
 
     public void addDocument(DocumentsDto documentsDto) {
-        Documents document = new Documents();
-
-        typeOfDocumentService.findByDocumentName()
+        Document document = new Document();
         document.setTypeOfDocuments(typeOfDocumentService.findByDocumentName(documentsDto.getTypeOfDocumentTitle()));
+        document.setSeries(document.getSeries());
+        document.setNumber(documentsDto.getNumber());
+        document.setDateOfDocument(documentsDto.getDateOfDocument());
     }
 }

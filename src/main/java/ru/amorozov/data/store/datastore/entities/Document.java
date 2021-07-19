@@ -10,13 +10,14 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Collection;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "documents")
 @NoArgsConstructor
 @AllArgsConstructor
 @Data
-public class Documents {
+public class Document {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,10 +25,10 @@ public class Documents {
     private Long id;
 
     @OneToMany(mappedBy = "documents")
-    private Collection<TypeOfDocument> typeOfDocuments;
+    private List<TypeOfDocument> typeOfDocuments;
 
     @OneToMany(mappedBy = "documents")
-    private Collection<People> people;
+    private List<People> people;
 
     @Column(name = "series")
     private Long series;

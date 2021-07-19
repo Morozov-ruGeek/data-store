@@ -1,5 +1,6 @@
 package ru.amorozov.data.store.datastore.services;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.amorozov.data.store.datastore.dto.PeopleDto;
@@ -12,13 +13,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor
 public class PeopleService {
     private final PeopleRepository peopleRepository;
-
-    @Autowired
-    public PeopleService(PeopleRepository peopleRepository) {
-        this.peopleRepository = peopleRepository;
-    }
+    private final TypeOfDocumentService typeOfDocumentService;
 
     public List<PeopleDto> findAll(){
         return peopleRepository.findAll().stream().map(PeopleDto::new).collect(Collectors.toList());

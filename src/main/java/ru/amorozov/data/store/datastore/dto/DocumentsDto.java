@@ -3,7 +3,7 @@ package ru.amorozov.data.store.datastore.dto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import ru.amorozov.data.store.datastore.entities.Documents;
+import ru.amorozov.data.store.datastore.entities.Document;
 
 import java.util.Date;
 
@@ -11,15 +11,16 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class DocumentsDto {
+    private int id;
     private String typeOfDocumentTitle;
     private Long series;
     private Long number;
     private Date dateOfDocument;
 
-    public DocumentsDto(Documents documents){
-        this.typeOfDocumentTitle = documents.getTypeOfDocuments().;
-        this.series = documents.getSeries();
-        this.number = documents.getNumber();
-        this.dateOfDocument = documents.getDateOfDocument();
+    public DocumentsDto(Document document){
+        this.typeOfDocumentTitle = document.getTypeOfDocuments().get(this.id).getDocumentName();
+        this.series = document.getSeries();
+        this.number = document.getNumber();
+        this.dateOfDocument = document.getDateOfDocument();
     }
 }

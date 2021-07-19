@@ -23,10 +23,10 @@ public class TypeOfDocument {
 
     @ManyToOne
     @JoinColumn (name = "type_id")
-    private Documents documents;
+    private Document document;
 
     @Column(name = "document_name")
-    private String name;
+    private String documentName;
 
     @CreationTimestamp
     @Column(name = "created_at")

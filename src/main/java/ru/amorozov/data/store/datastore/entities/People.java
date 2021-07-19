@@ -24,7 +24,7 @@ public class People {
 
     @ManyToOne
     @JoinColumn(name = "people_id")
-    private Documents documents;
+    private Document document;
 
     @Column(name = "first_name")
     private String firstName;
