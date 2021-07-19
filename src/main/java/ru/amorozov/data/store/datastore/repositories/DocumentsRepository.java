@@ -6,4 +6,5 @@ import ru.amorozov.data.store.datastore.entities.Document;
 
 @Repository
 public interface DocumentsRepository extends JpaRepository<Document, Long> {
+    void saveDocument(Document document);
 }

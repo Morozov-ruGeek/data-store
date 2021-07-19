@@ -18,5 +18,6 @@ public class DocumentsService {
         document.setSeries(document.getSeries());
         document.setNumber(documentsDto.getNumber());
         document.setDateOfDocument(documentsDto.getDateOfDocument());
+        documentsRepository.saveDocument(document);
     }
 }
