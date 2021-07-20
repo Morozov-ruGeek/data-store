@@ -9,21 +9,22 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.List;
 
 @Entity
-@Table(name = "peoples")
+@Table(name = "user")
 @Data
 @NoArgsConstructor
-public class People {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "people_id")
-    private Document document;
+    @OneToMany(mappedBy = "user")
+    private List<Document> documents;
 
     @Column(name = "first_name")
     private String firstName;
@@ -47,4 +48,11 @@ public class People {
     @UpdateTimestamp
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
+
+    public Long getUserAge(){
+        LocalDate birthday = this.getBirthday();
+        LocalDate currentDate = LocalDate.now();
+        Long age = ChronoUnit.YEARS.between(birthday, currentDate);
+        return age;
+    }
 }
