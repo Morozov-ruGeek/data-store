@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 public class DocumentsController {
     private final DocumentsService documentsService;
 
-    /*
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public void createDocument(@RequestBody CreateDocumentDTO createDocumentDTO, BindingResult bindingResult) {
@@ -30,5 +29,4 @@ public class DocumentsController {
         }
         documentsService.createDocument(createDocumentDTO);
     }
-    */
 }

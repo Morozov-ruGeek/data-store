@@ -12,15 +12,15 @@ public class DocumentsService {
     private final DocumentsRepository documentsRepository;
     private final UserService userService;
 
-    /*
+
     public void createDocument(CreateDocumentDTO createDocumentDTO) {
         Document document = new Document();
         document.setTypeOfDocument(createDocumentDTO.getTypeOfDocument());
         document.setSeries(document.getSeries());
         document.setNumber(createDocumentDTO.getNumber());
         document.setDateOfDocument(createDocumentDTO.getDateOfDocument());
-        document.setUser(userService.);
-        documentsRepository.saveDocument(document);
+        document.setUser(userService.findById(createDocumentDTO.getUserId()).get());
+        document = documentsRepository.save(document);
     }
-     */
+
 }

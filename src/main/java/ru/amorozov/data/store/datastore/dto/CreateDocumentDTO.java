@@ -13,12 +13,14 @@ import java.util.Date;
 @AllArgsConstructor
 public class CreateDocumentDTO {
     protected TypeOfDocument typeOfDocument;
+    protected Long userId;
     protected Long series;
     protected Long number;
     protected Date dateOfDocument;
 
     public CreateDocumentDTO(Document document){
         this.typeOfDocument = document.getTypeOfDocument();
+        this.userId = document.getUser().getId();
         this.series = document.getSeries();
         this.number = document.getNumber();
         this.dateOfDocument = document.getDateOfDocument();
