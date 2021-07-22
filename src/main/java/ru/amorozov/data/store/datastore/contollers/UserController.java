@@ -24,7 +24,7 @@ public class UserController {
         return userService.findAll();
     }
 
-    @GetMapping("/age/{id}")
+    @GetMapping("/{id}")
     public ReturnableUserDTO getUser(@PathVariable Long id) {
         return userService.getUser(id);
     }

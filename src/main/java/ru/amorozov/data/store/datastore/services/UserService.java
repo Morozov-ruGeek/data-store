@@ -35,6 +35,7 @@ public class UserService {
     public ReturnableUserDTO getUser(Long id) {
         Optional<User> user = Optional.ofNullable(userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User doesn't exists id: " + id)));
         ReturnableUserDTO returnableUserDTO = new ReturnableUserDTO();
+        returnableUserDTO.setId(user.get().getId());
         returnableUserDTO.setFirstName(user.get().getFirstName());
         returnableUserDTO.setLastName(user.get().getLastName());
         returnableUserDTO.setPatronymic(user.get().getPatronymic());

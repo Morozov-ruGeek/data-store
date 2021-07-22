@@ -9,12 +9,14 @@ import ru.amorozov.data.store.datastore.entities.User;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ReturnableUserDTO {
+    protected Long id;
     protected String firstName;
     protected String lastName;
     protected String patronymic;
     protected Long age;
 
     public ReturnableUserDTO(User user) {
+        this.id = user.getId();
         this.firstName = user.getFirstName();
         this.lastName = user.getLastName();
         this.patronymic = user.getPatronymic();
