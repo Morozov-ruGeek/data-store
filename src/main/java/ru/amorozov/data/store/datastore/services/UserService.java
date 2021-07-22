@@ -43,5 +43,8 @@ public class UserService {
         return returnableUserDTO;
     }
 
+    public Optional<User> findById(Long id){
+        return userRepository.findById(id);
+    }
 
 }
