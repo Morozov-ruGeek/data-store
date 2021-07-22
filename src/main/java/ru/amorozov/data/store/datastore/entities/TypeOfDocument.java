@@ -10,18 +10,17 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "type_document")
+@Table(name = "document_type")
 @NoArgsConstructor
 @Data
 public class TypeOfDocument {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "type_id")
+    @Column(name = "id")
     private Long id;
 
-    @ManyToOne
-    @JoinColumn (name = "type_id")
+    @OneToOne(mappedBy = "typeOfDocument")
     private Document document;
 
     @Column(name = "document_name")

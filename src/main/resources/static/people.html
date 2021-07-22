@@ -5,6 +5,11 @@
     <title>Title</title>
 </head>
 <body>
+<select>
+    {% for doc in document_types %}
+    <option value="{% doc.id %}">{% doc.name %}</option>
+    {% endif %}
+</select>
 
 </body>
 </html>

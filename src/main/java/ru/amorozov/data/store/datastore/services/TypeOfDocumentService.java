@@ -3,6 +3,7 @@ package ru.amorozov.data.store.datastore.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.amorozov.data.store.datastore.entities.TypeOfDocument;
+import ru.amorozov.data.store.datastore.error_handling.ResourceNotFoundException;
 import ru.amorozov.data.store.datastore.repositories.TypeOfDocumentRepository;
 
 import java.util.Optional;
@@ -16,11 +17,7 @@ public class TypeOfDocumentService {
         this.typeOfDocumentRepository = typeOfDocumentRepository;
     }
 
-    public Optional<TypeOfDocument> findByDocumentName(String documentName){
-        return typeOfDocumentRepository.findByDocumentName(documentName);
-    }
-
-    public Long findIdByDocumentName(String documentName){
-        return typeOfDocumentRepository.findIdByDocumentName(documentName)
+    public TypeOfDocument findById(Long id) {
+        return typeOfDocumentRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("Type of document id: " + id + "not found"));
     }
 }

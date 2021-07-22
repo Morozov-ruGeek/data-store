@@ -1,6 +1,5 @@
 package ru.amorozov.data.store.datastore.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -8,12 +7,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 @Entity
-@Table(name = "documents")
+@Table(name = "document")
 @NoArgsConstructor
 @Data
 public class Document {
@@ -23,11 +20,13 @@ public class Document {
     @Column(name = "id")
     private Long id;
 
-    @OneToMany(mappedBy = "documents")
-    private List<TypeOfDocument> typeOfDocuments;
+    @OneToOne
+    @JoinColumn (name = "id")
+    private TypeOfDocument typeOfDocument;
 
-    @OneToMany(mappedBy = "documents")
-    private List<People> people;
+    @ManyToOne
+    @JoinColumn (name = "user_id")
+    private User user;
 
     @Column(name = "series")
     private Long series;
